@@ -2,7 +2,7 @@
 
 import xadmin
 
-from app import models
+from .. import models
 
 class AAdmin(object):
     list_display = ['name', 'b', 'ename']

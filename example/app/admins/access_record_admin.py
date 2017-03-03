@@ -2,7 +2,7 @@
 
 import xadmin
 
-from app import models
+from .. import models
 
 class AccessRecordAdmin(object):
     def avg_count(self, instance):

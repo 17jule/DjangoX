@@ -23,7 +23,7 @@ class FormAction1(FormAction):
     
     def save_forms(self):
         for e in self.get_id_list():
-            print '999999999999999',e
+            print('999999999999999',e)
 #             import json
 #             print json.loads(e)['id']
     

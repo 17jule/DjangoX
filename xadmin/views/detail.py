@@ -9,7 +9,9 @@ from django.forms.models import modelform_factory
 from django.http import Http404
 from django.template import loader
 from django.template.response import TemplateResponse
-from django.utils.encoding import force_unicode, smart_unicode
+# from django.utils.encoding import force_unicode, smart_unicode
+from django.utils.encoding import smart_text as smart_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
@@ -20,8 +22,8 @@ from xadmin.layout import FormHelper, Layout, Fieldset, Container, Column, Field
 from xadmin.util import unquote, lookup_field, display_for_field, boolean_icon, label_for_field
 from xadmin.defs import EMPTY_CHANGELIST_VALUE
 
-from base import filter_hook, csrf_protect_m
-from model_page import ModelAdminView
+from .base import filter_hook, csrf_protect_m
+from .model_page import ModelAdminView
 
 
 class ShowField(Field):

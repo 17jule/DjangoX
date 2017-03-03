@@ -8,7 +8,8 @@ from django.db import models, transaction
 from django.forms.models import modelform_factory
 from django.http import Http404, HttpResponseRedirect
 from django.template.response import TemplateResponse
-from django.utils.encoding import force_unicode
+# from django.utils.encoding import force_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.html import escape
 from django.template import loader
 from django.utils.translation import ugettext as _
@@ -23,8 +24,8 @@ from xadmin.util import unquote
 from xadmin.views.detail import DetailAdminUtil
 from xadmin import dutils
 
-from base import filter_hook, csrf_protect_m
-from model_page import ModelAdminView
+from .base import filter_hook, csrf_protect_m
+from .model_page import ModelAdminView
 
 #在显示 Form 时，系统默认的 DBField 对应的 FormField的属性。
 FORMFIELD_FOR_DBFIELD_DEFAULTS = {

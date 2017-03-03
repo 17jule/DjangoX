@@ -11,7 +11,9 @@ from django.utils import formats
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
-from django.utils.encoding import force_unicode, smart_unicode, smart_str
+from django.utils.encoding import smart_str
+from django.utils.encoding import smart_text as smart_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.translation import ungettext
 from django.core.urlresolvers import reverse
 from django.conf import settings

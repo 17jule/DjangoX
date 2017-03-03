@@ -11,7 +11,7 @@ class TestFormView(FormView):
 
     def save_forms(self):
         data = self.form_obj.cleaned_data
-        print '>>>',data
+        print('>>>',data)
 
     def post_response(self):
         pass

@@ -465,7 +465,7 @@ class AdminSite(object):
                                   name=name) for path, clz_or_func, name in self._registry_views]
 
         # 循环所有已注册的 Model, 逐一添加其ModelAdminViewClass
-        for model, admin_class in self._registry.iteritems():
+        for model, admin_class in self._registry.items():
             view_urls = []
             app_label = model._meta.app_label
             module_name = model._meta.module_name
@@ -629,7 +629,7 @@ class AdminSite(object):
                     }]
         else:
             ret = []
-        for app_label,mod in self.app_dict.iteritems():
+        for app_label,mod in self.app_dict.items():
             if hasattr(mod,'verbose_name'):
                 m_first_url = None
                 if hasattr(mod,'index_url_name'):

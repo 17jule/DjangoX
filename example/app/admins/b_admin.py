@@ -6,12 +6,12 @@ import xadmin
 from xadmin.views.action import Action, FormAction
 
 
-from app import models
+from .. import models
 
 class MyAction1(Action):
     
     def action(self, qs):
-        print 'do MyAction1'
+        print('do MyAction1')
         self.msg('执行成功', 'success')
         return '5555555'
     
@@ -43,8 +43,8 @@ class MyAction2(FormAction):
     form = VerifyFailForm
     
     def action(self, qs):
-        print 'do MyAction2'
-        #self.msg('执行成功', 'success')
+        print('do MyAction2')
+        self.msg('执行成功', 'success')
 
 class BAdmin(object):
     actions = [MyAction1,MyAction3,MyAction4,MyAction5,MyAction6, MyAction2]

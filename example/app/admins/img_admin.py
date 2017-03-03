@@ -2,6 +2,6 @@
 
 import xadmin
 
-from app import models
+from .. import models
 
 xadmin.site.register(models.TestImg)

@@ -3,7 +3,7 @@
 from django.core.exceptions import PermissionDenied
 
 import xadmin
-from base import SiteView, filter_hook
+from .base import SiteView, filter_hook
 
 
 class PageView(SiteView):

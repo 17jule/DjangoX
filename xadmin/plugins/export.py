@@ -13,7 +13,9 @@ import datetime
 import sys
 
 from django.http import HttpResponse
-from django.utils.encoding import force_unicode, smart_unicode
+# from django.utils.encoding import force_unicode, smart_unicode
+from django.utils.encoding import smart_text as smart_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.html import escape
 from django.utils.translation import ugettext as _
 from django.utils.xmlutils import SimplerXMLGenerator

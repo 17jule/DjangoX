@@ -4,7 +4,7 @@ import xadmin
 from xadmin import views
 from xadmin.views.dashboard import AppDashboard
 
-from ..app import models
+from . import models
 
 
 ### 全局变量设置 ###

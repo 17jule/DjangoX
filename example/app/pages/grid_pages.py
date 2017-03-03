@@ -5,7 +5,7 @@ from xadmin.views.page import GridPage
 from xadmin.views.list import ResultRow
 from xadmin.views.base import filter_hook
 
-from form_actions import FormAction1
+from .form_actions import FormAction1
 
 
 

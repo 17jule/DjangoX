@@ -7,7 +7,8 @@ from django.forms.models import model_to_dict
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
-from django.utils.encoding import force_unicode
+# from django.utils.encoding import force_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.translation import ugettext as _
@@ -342,7 +343,7 @@ class RevisionListView(BaseReversionView):
             if type(value_a) in (list, tuple) and type(value_b) in (list, tuple) \
                     and len(value_a) == len(value_b) and is_diff:
                 is_diff = False
-                for i in xrange(len(value_a)):
+                for i in range(len(value_a)):
                     if value_a[i] != value_a[i]:
                         is_diff = True
                         break

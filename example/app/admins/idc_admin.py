@@ -4,7 +4,7 @@ import xadmin
 from xadmin.views.model_page import ModelAdmin
 from xadmin.plugins.batch import BatchChangeAction
 
-from app import models
+from .. import models
 
 
 class IDCAdmin(ModelAdmin):

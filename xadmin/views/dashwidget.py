@@ -7,7 +7,8 @@ from django.db.models.base import ModelBase
 from django.template import loader
 from django.template.context import RequestContext
 from django.test.client import RequestFactory
-from django.utils.encoding import force_unicode, smart_unicode
+# from django.utils.encoding import force_unicode, smart_unicode
+from django.utils.encoding import smart_text as smart_unicode
 from django.utils.translation import ugettext as _
 from django.utils.http import urlencode, urlquote
 

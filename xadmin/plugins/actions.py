@@ -4,7 +4,8 @@
 """
 from django import forms
 from django.http import HttpResponse, HttpResponseRedirect
-from django.utils.encoding import force_unicode
+# from django.utils.encoding import force_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ungettext
 from django.utils.text import capfirst

@@ -10,7 +10,8 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 from django.utils import six
 from django.utils import formats
-from django.utils.encoding import force_text,force_unicode
+# from django.utils.encoding import force_text,force_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.template import loader
 
 from xadmin import dutils

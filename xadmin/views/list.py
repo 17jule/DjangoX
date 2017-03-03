@@ -3,7 +3,9 @@
 from django.core.exceptions import PermissionDenied, ObjectDoesNotExist
 from django.core.paginator import Paginator
 from django.db import models
-from django.utils.encoding import force_unicode, smart_unicode
+# from django.utils.encoding import force_unicode, smart_unicode
+from django.utils.encoding import smart_text as smart_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst

@@ -6,7 +6,8 @@ from itertools import chain
 
 from django import forms
 from django.forms.widgets import RadioFieldRenderer
-from django.utils.encoding import force_unicode
+# from django.utils.encoding import force_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
 from django.utils.translation import ugettext as _

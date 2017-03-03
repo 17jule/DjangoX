@@ -3,7 +3,8 @@
 模型关联相关
 '''
 from django.core.urlresolvers import reverse
-from django.utils.encoding import force_unicode
+# from django.utils.encoding import force_unicode
+from django.utils.encoding import smart_text as force_unicode
 from django.utils.encoding import smart_str
 from django.utils.safestring import mark_safe
 from django.db.models.sql.query import LOOKUP_SEP

@@ -139,7 +139,7 @@ class FilterPlugin(BasePlugin):
                 if spec and spec.has_output():
                     try:
                         new_qs = spec.do_filte(queryset)
-                    except ValidationError, e:
+                    except ValidationError as e:
                         new_qs = None
                         self.admin_view.message_user(_("<b>Filtering error:</b> %s") % e.messages[0], 'error')
                     if new_qs is not None:
@@ -156,7 +156,7 @@ class FilterPlugin(BasePlugin):
             for key, value in lookup_params.items():
                 use_distinct = (
                     use_distinct or False)#lookup_needs_distinct(self.opts, key))
-        except FieldDoesNotExist, e:
+        except FieldDoesNotExist as e:
             raise IncorrectLookupParameters(e)
 
         try:
@@ -168,7 +168,7 @@ class FilterPlugin(BasePlugin):
             queryset = queryset.filter(**m_lookup_params)
         except (SuspiciousOperation, ImproperlyConfigured):
             raise
-        except Exception, e:
+        except Exception as e:
             raise IncorrectLookupParameters(e)
 
         query = self.request.GET.get(SEARCH_VAR, '')
@@ -363,7 +363,7 @@ class QuickFilterPlugin(BasePlugin):
                 if spec and spec.has_output():
                     try:
                         new_qs = spec.do_filte(queryset)
-                    except ValidationError, e:
+                    except ValidationError as e:
                         new_qs = None
                         self.admin_view.message_user(u"<b>过滤器错误:</b> %s" % e.messages[0], 'error')
                     if new_qs is not None:

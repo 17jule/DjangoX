@@ -3,7 +3,7 @@
 import xadmin
 from xadmin import layout
 
-from app import models
+from .. import models
 
 
 class MaintainInline(object):

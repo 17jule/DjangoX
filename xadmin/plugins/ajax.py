@@ -2,7 +2,8 @@
 
 from django import forms
 from django.utils.html import escape
-from django.utils.encoding import force_unicode
+# from django.utils.encoding import force_unicode
+from django.utils.encoding import smart_text as force_unicode
 
 from xadmin.sites import site
 from xadmin.core.structs import SortedDict
