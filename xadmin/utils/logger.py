@@ -257,7 +257,10 @@ class HTTPHandler(logging.handlers.HTTPHandler):
 
 class HTTPLogger(object):
     def __init__(self, url, method='POST', fallback_file=None, loglevel=LOG_DEBUG, servicename=__default_servicename__):
-        import urlparse
+        try:
+            import urlparse
+        except ImportError:
+            from urllib.parse import urljoin
         self.loglevel = loglevel
         self.fallback_file = fallback_file
         p = urlparse.urlparse(url)

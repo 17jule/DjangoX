@@ -1,4 +1,7 @@
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    from urllib.parse import urljoin
 
 from django.db import models
 from django import forms

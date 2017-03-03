@@ -8,7 +8,10 @@ try:
     from six.moves.urllib_parse import urljoin
 except:
     pass
-import urlparse
+try:
+    import urlparse
+except ImportError:
+    from urllib.parse import urljoin
 import logging
 
 from django.core.files.base import File
