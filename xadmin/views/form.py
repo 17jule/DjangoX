@@ -134,13 +134,13 @@ class FormView(SiteView):
 
         if self.valid_forms():
             ret = self.save_forms()
-            if isinstance(ret, basestring):
+            if isinstance(ret, str):
                 self.message_user(ret,'error')
                 return self.get_response()
             if isinstance(ret, HttpResponse):
                 return ret
             response = self.post_response()
-            if isinstance(response, basestring):
+            if isinstance(response, str):
                 return HttpResponseRedirect(response)
             else:
                 return response

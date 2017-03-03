@@ -420,7 +420,7 @@ class ModelFormAdminView(ModelAdminView):
             self.save_forms()
             
             ret = self.save_models()
-            if isinstance(ret, basestring):
+            if isinstance(ret, str):
                 self.message_user(ret,'error')
                 return self.get_response()
             if isinstance(ret, HttpResponse):
@@ -428,7 +428,7 @@ class ModelFormAdminView(ModelAdminView):
             
             self.save_related()
             response = self.post_response()
-            if isinstance(response, basestring):
+            if isinstance(response, str):
                 return HttpResponseRedirect(response)
             else:
                 return response

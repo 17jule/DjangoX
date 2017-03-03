@@ -121,7 +121,7 @@ def replace_field_to_value(layout, cb):
         if isinstance(lo, Field) or issubclass(lo.__class__, Field):
             layout.fields[i] = ShowField(
                 cb, *lo.fields, attrs=lo.attrs, wrapper_class=lo.wrapper_class)
-        elif isinstance(lo, basestring):
+        elif isinstance(lo, str):
             layout.fields[i] = ShowField(cb, lo)
         elif hasattr(lo, 'get_field_names'):
             replace_field_to_value(lo, cb)
@@ -251,7 +251,7 @@ class DetailAdminView(ModelAdminView):
         replace_field_to_value(layout, self.get_field_result)
         helper.add_layout(layout)
         helper.filter(
-            basestring, max_level=20).wrap(ShowField, admin_view=self)
+            str, max_level=20).wrap(ShowField, admin_view=self)
         return helper
 
     @csrf_protect_m

@@ -52,7 +52,8 @@ import calendar
 from django.http import HttpResponseNotFound
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse
-from django.utils.encoding import smart_unicode
+# from django.utils.encoding import smart_unicode
+from django.utils.encoding import smart_text as smart_unicode
 from django.db import models
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _, ugettext

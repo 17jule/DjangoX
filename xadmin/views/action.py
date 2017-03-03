@@ -138,7 +138,7 @@ class FormAction(Action):
             if self.form_obj.is_valid():
                 ret = self.action(queryset)
                 if ret:
-                    if isinstance(ret, basestring):
+                    if isinstance(ret, str):
                         self.message_user(ret,'error')
                     elif isinstance(ret, HttpResponse):
                         return ret

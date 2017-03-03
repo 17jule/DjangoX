@@ -60,7 +60,7 @@ class DeleteAdminView(ModelAdminView):
 
         response = self.post_response()
 
-        if isinstance(response, basestring):
+        if isinstance(response, str):
             # 如果返回字符串，说明是一个url，跳转到该页面
             return HttpResponseRedirect(response)
         else:

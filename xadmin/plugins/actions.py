@@ -115,7 +115,7 @@ class ActionPlugin(BasePlugin):
                         queryset = av.list_queryset.filter(pk__in=selected)
                     
                     ret = self._response_action(ac, queryset)
-                    if isinstance(ret, basestring):
+                    if isinstance(ret, str):
                         self.message_user(ret,'error')
                     if isinstance(ret, HttpResponse):
                         return ret

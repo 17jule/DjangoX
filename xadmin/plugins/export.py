@@ -180,7 +180,7 @@ class ExportPlugin(BasePlugin):
         if isinstance(t, bool):
             return '"是"' if t else '"否"'
         t = t.replace('"', '""').replace(',', '\,')
-        if isinstance(t, basestring):
+        if isinstance(t, str):
             t = '"%s"' % t
         return t
 

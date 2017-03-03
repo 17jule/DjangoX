@@ -5,7 +5,8 @@ import decimal
 
 import django
 from django.core.serializers.json import DjangoJSONEncoder
-from django.utils.encoding import smart_unicode
+# from django.utils.encoding import smart_unicode
+from django.utils.encoding import smart_text as smart_unicode
 from django.db.models.base import ModelBase
 from django.template import loader
 from django.template.context import RequestContext

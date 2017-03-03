@@ -142,7 +142,7 @@ def quote(s):
     quoting is slightly different so that it doesn't get automatically
     unquoted by the Web browser.
     """
-    if not isinstance(s, basestring):
+    if not isinstance(s, str):
         return s
     res = list(s)
     for i in range(len(res)):
@@ -156,7 +156,7 @@ def unquote(s):
     """
     Undo the effects of quote(). Based heavily on urllib.unquote().
     """
-    if not isinstance(s, basestring):
+    if not isinstance(s, str):
         return s
     mychr = chr
     myatoi = int
