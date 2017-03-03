@@ -538,7 +538,7 @@ class InlineRevisionPlugin(BasePlugin):
         related_versions = dict([(related_version.object_id, related_version)
                                  for related_version in revision_versions
                                  if ContentType.objects.get_for_id(related_version.content_type_id).model_class() == formset.model
-                                 and unicode(related_version.field_dict[fk_name]) == unicode(object_id)])
+                                 and str(related_version.field_dict[fk_name]) == str(object_id)])
         return related_versions
 
     def _hack_inline_formset_initial(self, revision_view, formset):
@@ -549,9 +549,9 @@ class InlineRevisionPlugin(BasePlugin):
             revision_view.org_obj, revision_view.version, formset)
         formset.related_versions = related_versions
         for related_obj in formset.queryset:
-            if unicode(related_obj.pk) in related_versions:
+            if str(related_obj.pk) in related_versions:
                 initial.append(
-                    related_versions.pop(unicode(related_obj.pk)).field_dict)
+                    related_versions.pop(str(related_obj.pk)).field_dict)
             else:
                 initial_data = model_to_dict(related_obj)
                 initial_data["DELETE"] = True
@@ -565,7 +565,7 @@ class InlineRevisionPlugin(BasePlugin):
         # Reconstruct the forms with the new revision data.
         formset.initial = initial
         formset.forms = [formset._construct_form(
-            n) for n in xrange(len(initial))]
+            n) for n in range(len(initial))]
         # Hack the formset to force a save of everything.
 
         def get_changed_data(form):

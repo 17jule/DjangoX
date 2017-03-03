@@ -2,6 +2,9 @@
 
 import json
 import urllib
+import sys
+if sys.version[0] == '3':
+    from urllib import parse as urllib
 
 from django.core.paginator import Paginator, Page
 from django.utils.safestring import mark_safe
@@ -160,7 +163,7 @@ class GridPage(BaseGrid,PageView):
         key = field_name
         
         item = ResultItem(field_name, row)
-        if data.has_key(key):
+        if key in data:
             text = data[key]
         else:
             text = getattr(self, key)(data)

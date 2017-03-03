@@ -168,7 +168,13 @@ class Common(object):
             return self.request.POST.get(k, None)
         
     def param_list(self):
-        return self.request.GET.keys() + self.request.POST.keys()
+        get_keys = []
+        post_keys = []
+        if self.request.GET:
+            get_keys = list(self.request.GET.keys())
+        if self.request.POST:
+            post_keys = list(self.request.POST.keys())
+        return get_keys + post_keys
 
     ########################################## 页面Page 相关的函数 ##########################################
     def render_response(self, content, response_type='json'):

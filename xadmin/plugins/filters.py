@@ -84,7 +84,7 @@ class FilterPlugin(BasePlugin):
         # 获得查询参数数据
         lookup_params = dict([(smart_str(k)[len(FILTER_PREFIX):], v) for k, v in self.admin_view.params.items()
                               if smart_str(k).startswith(FILTER_PREFIX) and v != ''])
-        for p_key, p_val in lookup_params.iteritems():
+        for p_key, p_val in lookup_params.items():
             if p_val == "False":
                 lookup_params[p_key] = False
         #
@@ -149,8 +149,7 @@ class FilterPlugin(BasePlugin):
 
         self.has_filters = bool(self.filter_specs)
         self.admin_view.filter_specs = self.filter_specs
-        self.admin_view.used_filter_num = len(
-            filter(lambda f: f.is_used, self.filter_specs))
+        self.admin_view.used_filter_num = len(list(filter(lambda f: f.is_used, self.filter_specs)))
 
         try:
             for key, value in lookup_params.items():
@@ -307,7 +306,7 @@ class QuickFilterPlugin(BasePlugin):
  
     def get_list_queryset(self, queryset):
         lookup_params = dict([(smart_str(k)[len(FILTER_PREFIX):], v) for k, v in self.admin_view.params.items() if smart_str(k).startswith(FILTER_PREFIX) and v != ''])
-        for p_key, p_val in lookup_params.iteritems():
+        for p_key, p_val in lookup_params.items():
             if p_val == "False":
                 lookup_params[p_key] = False
         use_distinct = False

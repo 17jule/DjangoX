@@ -64,7 +64,7 @@ class ActionPlugin(BasePlugin):
     def _get_action_choices(self):
         choices = []
         if type(self.actions)==SortedDict:
-            for ac, name, verbose_name, icon in self.actions.itervalues():
+            for ac, name, verbose_name, icon in iter(self.actions.values()):
                 if self.opts:
                     choice = (name, verbose_name % model_format_dict(self.opts), icon)
                 else:

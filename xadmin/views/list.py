@@ -314,7 +314,7 @@ class ListAdminView(BaseGrid,ModelPage):
         if field_name in ordering_field_columns:
             sorted = True
             order_type = ordering_field_columns.get(field_name).lower()
-            sort_priority = ordering_field_columns.keys().index(field_name) + 1
+            sort_priority = list(ordering_field_columns.keys()).index(field_name) + 1
             th_classes.append('sorted %sending' % order_type)
             new_order_type = {'asc': 'desc', 'desc': 'asc'}[order_type]
 
