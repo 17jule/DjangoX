@@ -17,7 +17,7 @@ from xadmin.defs import EMPTY_CHANGELIST_VALUE
 from xadmin.defs import FILTER_PREFIX, SEARCH_VAR
 from xadmin.dutils import RelatedObject, get_cache
 
-from util import get_model_from_relation, reverse_field_path, get_limit_choices_to_from_path, prepare_lookup_value
+from .util import get_model_from_relation, reverse_field_path, get_limit_choices_to_from_path, prepare_lookup_value
 
 
 class FieldFilterManager(object):
@@ -581,7 +581,7 @@ class CommonFieldListFilter(FieldFilter):
         if ne_key in params:
             queryset = queryset.exclude(
                 **{self.field_path: params.pop(ne_key)})
-        print 'do filter: ',params
+        print('do filter: ',params)
         return queryset.filter(**params)
 
 

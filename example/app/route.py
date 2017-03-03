@@ -7,14 +7,14 @@ from django.utils.safestring import mark_safe
 from django.forms.formsets import formset_factory
 
 import xadmin
-from xadmin import site
+from xadmin.sites import site
 from xadmin.views.base import SiteView, BaseView
 from xadmin.views.form import FormAdminView
 
 from xadmin.views.page import PageView,FormPage,GridPage
 from xadmin.views.list import ResultRow, ResultItem
 
-from test_form import TestForm
+from .test_form import TestForm
 
 
 

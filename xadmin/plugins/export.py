@@ -5,7 +5,10 @@
 可以通过设置 list_export 属性来指定使用哪些导出格式 (四种各使用分别用 ``xls``, ``csv``, ``xml``, ``json`` 表示)
 将 list_export 设置为 None 来禁用数据导出功能. 
 """
-import StringIO
+try:
+    import StringIO
+except ImportError:
+    from io import StringIO
 import datetime
 import sys
 

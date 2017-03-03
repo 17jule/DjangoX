@@ -3,7 +3,7 @@ from django.contrib.admin.models import LogEntry
 from django.contrib.contenttypes.models import ContentType
 
 import xadmin
-from models import UserSettings, SystemSettings
+from .models import UserSettings, SystemSettings
 
 
 class UserSettingsAdmin(object):

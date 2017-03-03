@@ -13,10 +13,10 @@ from django.utils.text import Truncator
 from xadmin.util import lookup_field, display_for_field, label_for_field, boolean_icon
 from xadmin.defs import TO_FIELD_VAR, ALL_VAR, ORDER_VAR, PAGE_VAR, COL_LIST_VAR, ERROR_FLAG, SEARCH_VAR, EMPTY_CHANGELIST_VALUE
 
-from base import filter_hook, csrf_protect_m
-from model_page import ModelPage
-from common import FakeMethodField, ResultRow, ResultItem, ResultHeader
-from grid import BaseGrid
+from .base import filter_hook, csrf_protect_m
+from .model_page import ModelPage
+from .common import FakeMethodField, ResultRow, ResultItem, ResultHeader
+from .grid import BaseGrid
 
 
 class ListAdminView(BaseGrid,ModelPage):

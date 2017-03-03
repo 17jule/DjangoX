@@ -49,7 +49,7 @@ def xstatic(*tags):
     u'''
     根据vendors映射表得到资源的static路径
     '''
-    from vendors import vendors
+    from .vendors import vendors
     node = vendors
 
     fs = []
@@ -59,7 +59,7 @@ def xstatic(*tags):
         try:
             for p in tag.split('.'):
                 node = node[p]
-        except Exception, e:
+        except Exception as e:
             if tag.startswith('xadmin'):
                 file_type = tag.split('.')[-1]
                 if file_type in ('css', 'js'):
@@ -69,7 +69,7 @@ def xstatic(*tags):
             else:
                 raise e
 
-        if type(node) in (str, unicode):
+        if type(node) in (str, ):
             files = node
         else:
             mode = 'dev'
@@ -250,7 +250,7 @@ class NestedObjects(Collector):
                 self.add_edge(None, obj)
         try:
             return super(NestedObjects, self).collect(objs, source_attr=source_attr, **kwargs)
-        except models.ProtectedError, e:
+        except models.ProtectedError as e:
             self.protected.update(e.protected_objects)
 
     def related_objects(self, related, objs):
@@ -369,7 +369,7 @@ def label_for_field(name, model, model_admin=None, return_attr=False):
     except models.FieldDoesNotExist:
         if name == "__unicode__":
             label = force_unicode(model._meta.verbose_name)
-            attr = unicode
+            attr = str
         elif name == "__str__":
             label = smart_str(model._meta.verbose_name)
             attr = str

@@ -4,7 +4,7 @@ import xadmin
 from xadmin import views
 from xadmin.views.dashboard import AppDashboard
 
-from app import models
+from ..app import models
 
 
 ### 全局变量设置 ###
@@ -53,8 +53,8 @@ xadmin.site.register_appindex(AuthIndex)
 
 
 ### 加载子层 ###
-import admins
-import pages
+from .admins import *
+from .pages import *
 # import route
 # import test_view
 # import test_page

@@ -9,13 +9,14 @@ from django.views.decorators.cache import never_cache
 from django.utils.text import capfirst
 from django.core.urlresolvers import reverse
 
-from util import sortkeypicker
-from core.structs import SortedDict
-import defs
+from .util import sortkeypicker
+from .core.structs import SortedDict
+from . import defs
 
-#设置系统的编码为utf-8
-reload(sys)
-sys.setdefaultencoding("utf-8")
+# 设置系统的编码为utf-8
+if sys.version[0] == '2':
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
 
 
 class AlreadyRegistered(Exception):
@@ -538,9 +539,9 @@ class AdminSite(object):
                 m_menu_group = '_default_group'
             icon = getattr(model_admin,'model_icon', defs.DEFAULT_MODEL_ICON)
             
-            app_label = getattr(model_admin, 'app_label', model._meta.app_label)  #model_admin.app_label
+            app_label = getattr(model_admin, 'app_label', model._meta.app_label)  # model_admin.app_label
             model_dict = {
-                'title': getattr(model_admin, 'verbose_name', '') or  unicode(capfirst(model._meta.verbose_name_plural)),
+                'title': getattr(model_admin, 'verbose_name', '') or str(capfirst(model._meta.verbose_name_plural)),
                 'url': self.get_model_url(model, "changelist"),
                 'icon': icon,
                 'perm': self.get_model_perm(model, 'view'),

@@ -4,8 +4,10 @@
 import sys
 import os.path
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
+if sys.version[0] == '2':
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
 gettext = lambda s: s
 
 PROJECT_ROOT = os.path.join(
