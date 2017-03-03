@@ -652,7 +652,7 @@ class AdminSite(object):
 
                 ret.append({
                             'app_label': app_label,
-                            'title': getattr(mod,'verbose_name', unicode(capfirst(app_label))  ),
+                            'title': getattr(mod,'verbose_name', str(capfirst(app_label))  ),
                             'url': m_first_url,
                             'icon': '',
                             'selected': app_label==select_app

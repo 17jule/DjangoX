@@ -32,7 +32,7 @@ def safe_str(o):
     try:
         return str(o)
     except:
-        if isinstance(o, unicode):
+        if isinstance(o, str):
             encoding = sys.getdefaultencoding()
             return o.encode(encoding, 'backslashreplace')
         return o

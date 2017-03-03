@@ -69,7 +69,7 @@ class AutoMD5SlugField(SlugField):
         return slug
 
     def pre_save(self, model_instance, add):
-        value = unicode(self.create_slug(model_instance, add))
+        value = str(self.create_slug(model_instance, add))
         setattr(model_instance, self.attname, value)
         return value
 
