@@ -401,7 +401,7 @@ class DateFieldListFilter(ListFieldFilter):
         self.links = (
             (_('Any date'), {}),
             (_('Has date'), {
-                self.lookup_isnull_name: False
+                self.lookup_isnull_name: 'False'
             }),
             (_('Has no date'), {
                 self.lookup_isnull_name: 'True'
@@ -470,7 +470,10 @@ class RelatedFieldSearchFilter(FieldFilter):
         self.title = self.lookup_title
         self.search_url = model_admin.get_admin_url('%s_%s_changelist' % (
             other_model._meta.app_label, other_model._meta.module_name))
-        self.label = self.label_for_value(other_model, rel_name, self.lookup_exact_val) if self.lookup_exact_val else ""
+        temp_label = ""
+        if hasattr(self, "lookup_exact_val"):
+            temp_label = self.label_for_value(other_model, rel_name, self.lookup_exact_val)
+        self.label = temp_label
         self.choices = '?'
         if field.rel.limit_choices_to:
             for i in list(field.rel.limit_choices_to):
