@@ -286,7 +286,7 @@ class ModelFormAdminView(ModelAdminView):
         设置 Form Layout 可以非常灵活的显示表单页面的各个元素
         """
         layout = copy.deepcopy(self.form_layout)
-        fields = self.form_obj.fields.keys() + list(self.get_readonly_fields())
+        fields = list(self.form_obj.fields.keys()) + list(self.get_readonly_fields())
 
         if layout is None:
             layout = Layout(Container(Col('full',

@@ -14,7 +14,7 @@ class AccessRecordAdmin(object):
     list_display = ('date', 'user_count', 'view_count', 'avg_count')
     list_display_links = ('date',)
 
-    list_filter = ['date', 'user_count', 'view_count']
+    list_filter = ('date', 'user_count', 'view_count')
     actions = None
     aggregate_fields = {"user_count": "sum", 'view_count': "sum"}
 

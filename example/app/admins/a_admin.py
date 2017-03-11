@@ -5,6 +5,6 @@ import xadmin
 from .. import models
 
 class AAdmin(object):
-    list_display = ['name', 'b', 'ename']
+    list_display = ('name', 'b', 'ename')
     pass
 xadmin.site.register(models.A, AAdmin)
