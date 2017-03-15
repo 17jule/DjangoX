@@ -378,9 +378,6 @@ class DateFieldListFilter(ListFieldFilter):
         self.field_generic = '%s__' % field_path
         self.date_params = dict([(FILTER_PREFIX + k, v) for k, v in params.items()
                                  if k.startswith(self.field_generic)])
-        self.lookup_isnull_name = "lookup_isnull_name"
-        self.lookup_since_name = "lookup_since_name"
-        self.lookup_until_name = "lookup_until_name"
 
         super(DateFieldListFilter, self).__init__(
             field, request, params, model, admin_view, field_path)
