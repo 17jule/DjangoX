@@ -378,6 +378,7 @@ class DateFieldListFilter(ListFieldFilter):
         self.field_generic = '%s__' % field_path
         self.date_params = dict([(FILTER_PREFIX + k, v) for k, v in params.items()
                                  if k.startswith(self.field_generic)])
+        self.lookup_isnull_name = ""
 
         super(DateFieldListFilter, self).__init__(
             field, request, params, model, admin_view, field_path)
@@ -397,6 +398,9 @@ class DateFieldListFilter(ListFieldFilter):
         else:       # field is a models.DateField
             today = now.date()
         tomorrow = today + datetime.timedelta(days=1)
+
+        self.lookup_since_name = '%s__gte' % field_path
+        self.lookup_until_name = '%s__lt' % field_path
 
         self.links = (
             (_('Any date'), {}),
